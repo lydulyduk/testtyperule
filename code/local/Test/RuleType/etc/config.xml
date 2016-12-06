@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Test_RuleType>
+            <version>1.0.0</version>
+        </Test_RuleType>
+    </modules>
+    <frontend>
+        <events>
+            <salesrule_validator_process>
+                <observers>
+                    <shoppingcartrules>
+                        <type>model</type>
+                        <class>Test_RuleType_Model_Observer</class>
+                        <method>caseForRuleTypeDiscountByProductAttribute</method>
+                    </shoppingcartrules>
+                </observers>
+            </salesrule_validator_process>
+        </events>
+    </frontend>
+    <global>
+        <resources>
+            <testruletype_setup>
+                <setup>
+                    <module>Test_RuleType</module>
+                </setup>
+            </testruletype_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <events>
+            <adminhtml_block_salesrule_actions_prepareform>
+                <observers>
+                    <newruletype>
+                        <type>model</type>
+                        <class>Test_RuleType_Model_Observer</class>
+                        <method>newOptionForSelectSimpleAction</method>
+                    </newruletype>
+                </observers>
+            </adminhtml_block_salesrule_actions_prepareform>
+        </events>
+    </adminhtml>
+</config>
