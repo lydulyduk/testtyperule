@@ -58,7 +58,6 @@ class Test_RuleType_Model_Observer
 
         $qty = $this->getItemQty($item, $rule);
 
-        $itemPrice              = $this->getItemPrice($item);
         $baseItemPrice          = $this->getItemBasePrice($item);
 
         if ($rule->getSimpleAction() == 'by_product_attribute') {
@@ -73,13 +72,6 @@ class Test_RuleType_Model_Observer
             $result->setDiscountAmount($discountAmount);
             $result->setBaseDiscountAmount($baseDiscountAmount);
         }
-    }
-
-    private function getItemPrice($item)
-    {
-        $price = $item->getDiscountCalculationPrice();
-        $calcPrice = $item->getCalculationPrice();
-        return ($price !== null) ? $price : $calcPrice;
     }
 
 
